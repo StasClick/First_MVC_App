@@ -1,6 +1,10 @@
 using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using SportsStore.Domain.Abstract;
+using Moq;
+using SportsStore.Domain.Entities;
+using System.Collections.Generic;
 
 namespace SportsStore.WebUI.App_Start
 {
@@ -32,11 +36,23 @@ namespace SportsStore.WebUI.App_Start
         /// change the defaults), as Unity allows resolving a concrete type even if it was not previously registered.</remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            // NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
-            // container.LoadConfiguration();
+			// NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
+			// container.LoadConfiguration();
 
-            // TODO: Register your types here
-            // container.RegisterType<IProductRepository, ProductRepository>();
-        }
-    }
+			// TODO: Register your types here
+			// container.RegisterType<IProductRepository, ProductRepository>();
+
+
+
+			Mock<IProductRepository> mock = new Mock<IProductRepository>();
+			mock.Setup(m => m.Products).Returns(new List<Product>
+			{
+				new Product { Name = "Football", Price = 25 },
+				new Product { Name = "Surf board", Price = 179 },
+				new Product { Name = "Running shoes", Price = 95 },
+			});
+
+			container.RegisterInstance<IProductRepository>(mock.Object);
+		}
+	}
 }
