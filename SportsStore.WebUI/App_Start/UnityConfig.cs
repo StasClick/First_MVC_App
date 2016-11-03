@@ -5,6 +5,7 @@ using SportsStore.Domain.Abstract;
 using Moq;
 using SportsStore.Domain.Entities;
 using System.Collections.Generic;
+using SportsStore.Domain.Concrete;
 
 namespace SportsStore.WebUI.App_Start
 {
@@ -44,15 +45,17 @@ namespace SportsStore.WebUI.App_Start
 
 
 
-			Mock<IProductRepository> mock = new Mock<IProductRepository>();
-			mock.Setup(m => m.Products).Returns(new List<Product>
-			{
-				new Product { Name = "Football", Price = 25 },
-				new Product { Name = "Surf board", Price = 179 },
-				new Product { Name = "Running shoes", Price = 95 },
-			});
+			//Mock<IProductRepository> mock = new Mock<IProductRepository>();
+			//mock.Setup(m => m.Products).Returns(new List<Product>
+			//{
+			//	new Product { Name = "Football", Price = 25 },
+			//	new Product { Name = "Surf board", Price = 179 },
+			//	new Product { Name = "Running shoes", Price = 95 },
+			//});
+			//
+			//container.RegisterInstance<IProductRepository>(mock.Object);
 
-			container.RegisterInstance<IProductRepository>(mock.Object);
+			container.RegisterType<IProductRepository, EFProductRepository>();
 		}
 	}
 }

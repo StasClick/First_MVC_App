@@ -120,6 +120,16 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SportsStore.Domain\SportsStore.Domain.csproj">
+      <Project>{1AA05D5E-8623-4045-9504-90EE4C40DC31}</Project>
+      <Name>SportsStore.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportsStore.WebUI\SportsStore.WebUI.csproj">
+      <Project>{8D3F2B18-F71D-4A28-8A57-A4D458DAEA7B}</Project>
+      <Name>SportsStore.WebUI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
