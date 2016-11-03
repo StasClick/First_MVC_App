@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SportsStore.Domain.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,17 @@ namespace SportsStore.WebUI.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Product
-        public ActionResult Index()
+		private IProductRepository repository;
+
+		public ProductController(IProductRepository productRepository)
+		{
+			repository = productRepository;
+		}
+
+		// GET: Product
+		public ViewResult List()
         {
-            return View();
+            return View(repository.Products);
         }
     }
 }
