@@ -43,18 +43,6 @@ namespace SportsStore.WebUI.App_Start
 			// TODO: Register your types here
 			// container.RegisterType<IProductRepository, ProductRepository>();
 
-
-
-			//Mock<IProductRepository> mock = new Mock<IProductRepository>();
-			//mock.Setup(m => m.Products).Returns(new List<Product>
-			//{
-			//	new Product { Name = "Football", Price = 25 },
-			//	new Product { Name = "Surf board", Price = 179 },
-			//	new Product { Name = "Running shoes", Price = 95 },
-			//});
-			//
-			//container.RegisterInstance<IProductRepository>(mock.Object);
-
 			container.RegisterType<IProductRepository, EFProductRepository>();
 		}
 	}
