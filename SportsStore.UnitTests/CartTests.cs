@@ -114,5 +114,28 @@ namespace SportsStore.UnitTests
 			// assert
 			Assert.AreEqual(target.Lines.Count(), 0);
 		}
+
+		[TestMethod]
+		public void Can_Add_To_Cart()
+		{
+			Mock<IProductRepository> mock = new Mock<IProductRepository>();
+			mock.Setup(m => m.Products).Returns(new Product[]
+			{
+				new Product { ProductID = 1, Name = "P1", Category = "Apples" },
+			}.AsQueryable());
+			// arrange
+			Product p1 = new Product { ProductID = 1, Name = "P1", Price = 100m };
+			Product p2 = new Product { ProductID = 2, Name = "P2", Price = 50m };
+
+			Cart target = new Cart();
+
+			// act
+			target.AddItem(p1, 1);
+			target.AddItem(p2, 1);
+			target.Clear();
+
+			// assert
+			Assert.AreEqual(target.Lines.Count(), 0);
+		}
 	}
 }
