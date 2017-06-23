@@ -27,7 +27,7 @@ namespace SportsStore.UnitTests
 				new Product {ProductID = 3, Name = "P3" },
 				new Product {ProductID = 4, Name = "P4" },
 				new Product {ProductID = 5, Name = "P5" },
-			});
+			}.AsQueryable());
 			ProductController controller = new ProductController(mock.Object);
 			controller.PageSize = 3;
 
@@ -77,7 +77,7 @@ namespace SportsStore.UnitTests
 				new Product {ProductID = 3, Name = "P3" },
 				new Product {ProductID = 4, Name = "P4" },
 				new Product {ProductID = 5, Name = "P5" },
-			});
+			}.AsQueryable());
 			ProductController controller = new ProductController(mock.Object);
 			controller.PageSize = 3;
 
@@ -104,7 +104,7 @@ namespace SportsStore.UnitTests
 				new Product {ProductID = 3, Name = "P3", Category = "Cat1" },
 				new Product {ProductID = 4, Name = "P4", Category = "Cat2" },
 				new Product {ProductID = 5, Name = "P5", Category = "Cat3" },
-			});
+			}.AsQueryable());
 			ProductController controller = new ProductController(mock.Object);
 			controller.PageSize = 3;
 
@@ -128,7 +128,7 @@ namespace SportsStore.UnitTests
 				new Product {ProductID = 2, Name = "P2", Category = "Apples" },
 				new Product {ProductID = 3, Name = "P3", Category = "Plums" },
 				new Product {ProductID = 4, Name = "P4", Category = "Oranges" },
-			});
+			}.AsQueryable());
 			NavController target = new NavController(mock.Object);
 
 			// act
@@ -150,7 +150,7 @@ namespace SportsStore.UnitTests
 			{
 				new Product {ProductID = 1, Name = "P1", Category = "Apples" },
 				new Product {ProductID = 4, Name = "P2", Category = "Oranges" },
-			});
+			}.AsQueryable());
 			NavController target = new NavController(mock.Object);
 			string categoryToSelect = "Apples";
 
@@ -173,7 +173,7 @@ namespace SportsStore.UnitTests
 				new Product {ProductID = 3, Name = "P3", Category = "Cat1" },
 				new Product {ProductID = 4, Name = "P4", Category = "Cat2" },
 				new Product {ProductID = 5, Name = "P5", Category = "Cat3" },
-			});
+			}.AsQueryable());
 			ProductController target = new ProductController(mock.Object);
 			target.PageSize = 3;
 
