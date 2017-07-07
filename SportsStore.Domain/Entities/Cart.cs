@@ -31,7 +31,7 @@ namespace SportsStore.Domain.Entities
 			lineCollection.RemoveAll(l => l.Product.ProductID == product.ProductID);
 		}
 
-		public decimal ComuteTotalValue()
+		public decimal ComputeTotalValue()
 		{
 			return lineCollection.Sum(e => e.Product.Price * e.Quantity);
 		}

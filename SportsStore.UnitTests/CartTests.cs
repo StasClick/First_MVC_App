@@ -91,7 +91,7 @@ namespace SportsStore.UnitTests
 			target.AddItem(p1, 1);
 			target.AddItem(p2, 1);
 			target.AddItem(p1, 3);
-			decimal result = target.ComuteTotalValue();
+			decimal result = target.ComputeTotalValue();
 
 			// assert
 			Assert.AreEqual(result, 450m);

@@ -1,9 +1,6 @@
 using System;
 using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
 using SportsStore.Domain.Abstract;
-using Moq;
-using SportsStore.Domain.Entities;
 using System.Collections.Generic;
 using SportsStore.Domain.Concrete;
 
