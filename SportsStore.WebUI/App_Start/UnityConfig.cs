@@ -3,6 +3,7 @@ using Microsoft.Practices.Unity;
 using SportsStore.Domain.Abstract;
 using System.Collections.Generic;
 using SportsStore.Domain.Concrete;
+using System.Configuration;
 
 namespace SportsStore.WebUI.App_Start
 {
@@ -41,6 +42,13 @@ namespace SportsStore.WebUI.App_Start
 			// container.RegisterType<IProductRepository, ProductRepository>();
 
 			container.RegisterType<IProductRepository, EFProductRepository>();
+
+			EmailSettings emailSettings = new EmailSettings();
+			emailSettings.WriteAsFile = bool.Parse(
+				ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false");
+
+			container.RegisterType<IOrderProcessor, EmailOrderProcessor>(
+				new InjectionConstructor(emailSettings));
 		}
 	}
 }
